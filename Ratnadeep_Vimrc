@@ -1,0 +1,78 @@
+"Filetype
+set filetype=on
+filetype plugin on
+filetype indent on
+
+set pastetoggle=<F2>
+set nocompatible
+set et
+set ai
+set sw=4
+set ts=4
+set ruler
+set si
+set nu
+set is
+set ic
+set sm
+"set sta
+syn on
+set backspace=indent,eol,start
+set hlsearch
+set ruler
+set nobackup
+set nowritebackup
+set wildmenu
+set incsearch
+set foldmethod=indent
+highlight WhitespaceEOL ctermbg=red guibg=red
+match WhitespaceEOL /\s\+$/
+au FileType make set noet
+
+set pastetoggle=<F3>
+autocmd BufRead *.vala set efm=%f:%l.%c-%[%^:]%#:\ %t%[%^:]%#:\ %m
+autocmd BufRead *.vapi set efm=%f:%l.%c-%[%^:]%#:\ %t%[%^:]%#:\ %m
+au BufRead,BufNewFile *.vala            setfiletype vala
+au BufRead,BufNewFile *.vapi            setfiletype vala
+
+"HTML (tab width 2 chr, no wrapping)
+autocmd FileType html set sw=2
+autocmd FileType html set ts=2
+autocmd FileType html set textwidth=0
+
+" Python (tab width 4 chr, wrap at 79th char)
+autocmd FileType python set sw=4
+autocmd FileType python set ts=4
+"autocmd FileType python set textwidth=79
+
+" CSS (tab width 2 chr, wrap at 79th chr)
+autocmd FileType css set sw=2
+autocmd FileType css set ts=2
+"autocmd FileType css set textwidth=79
+
+" JavaScript (tab width 4 chr, wrap at 79th)
+autocmd FileType javascript set sw=2
+autocmd FileType javascript set ts=2
+"autocmd FileType javascript set textwidth=79
+
+autocmd FileType python set omnifunc=pythoncomplete#Complete
+autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
+autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+
+"Higlight current line only in insert mode
+autocmd InsertLeave * set nocursorline
+autocmd InsertEnter * set cursorline
+
+autocmd FileType python set ft=python.django " For SnipMate
+autocmd FileType html set ft=htmldjango.html " For SnipMate
+
+" Nerdtree conf
+autocmd vimenter * if !argc() | NERDTree | endif
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+
+" Easy motion leader key
+let g:EasyMotion_leader_key = '\'
+
+" Vim pathogen
+execute pathogen#infect()
