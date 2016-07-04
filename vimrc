@@ -24,6 +24,7 @@ highlight WhitespaceEOL ctermbg=red guibg=red
 match WhitespaceEOL /\s\+$/
 
 " Python (tab width 8 chr, wrap at 79th char)
+autocmd filetype python set noexpandtab "Prevents converting tabs to spaces
 autocmd filetype python set sw=8
 autocmd filetype python set ts=8
 " autocmd FileType python set textwidth=79
