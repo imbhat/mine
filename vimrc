@@ -1,4 +1,9 @@
-' Resources https://dev.launchpad.net/UltimateVimPythonSetup
+" Resources https://dev.launchpad.net/UltimateVimPythonSetup
+
+" To know list of themes in your system, go to command mode and
+" type :colorscheme <tab> key
+" If you want to set theme, uncomment this line
+"colorscheme badwolf
 
 "Filetype
 set filetype=on
@@ -14,10 +19,11 @@ set hlsearch
 set number
 set smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
 
-' http://vimdoc.sourceforge.net/htmldoc/syntax.html#python.vim
+" http://vimdoc.sourceforge.net/htmldoc/syntax.html#python.vim
 let python_highlight_all = 1
 
-' set foldmethod=indent
+
+" set foldmethod=indent
 
 " Highlight end of line whitespace.
 highlight WhitespaceEOL ctermbg=red guibg=red
